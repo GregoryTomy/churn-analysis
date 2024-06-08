@@ -20,7 +20,7 @@ db_params = {
 }
 
 
-def fetch_event_data(event_types: List[str]):
+def fetch_event_data(event_types: List[str]) -> pd.DataFrame:
     event_types_str = ", ".join(f"'{event}'" for event in event_types)
 
     sql_query = f"""
@@ -45,7 +45,7 @@ def fetch_event_data(event_types: List[str]):
     return df
 
 
-def plot_events(df):
+def plot_events(df: pd.DataFrame) -> None:
     event_types = df["event_type"].unique()
     for event_type in event_types:
         df_event = df[df["event_type"] == event_type]
