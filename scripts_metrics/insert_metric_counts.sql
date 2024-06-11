@@ -3,6 +3,7 @@
 -- Date ranges are selected based on EDA that showed a cylical pattern where people 
 -- are reading Manning books on the weekdays. So we time measurements to pickup a full
 -- week each time. 
+-- note this script is to be run dynamically in metric_calc.py
 with
     -- generate a series of 7 day intervals
     date_intervals as (
@@ -10,7 +11,7 @@ with
             generate_series(
                 '2020-02-22'::timestamp,
                 '2020-06-04'::timestamp,
-               '7 day'::interval
+                '7 day'::interval
             ) as metric_date
     )
 insert into
@@ -23,7 +24,7 @@ insert into
 select
     e.account_id,
     date_intervals.metric_date,
-    %(new_metric_id)s,
+%(new_metric_id)s,
     count(*)                   as metric_value
 from
     livebook.event as e

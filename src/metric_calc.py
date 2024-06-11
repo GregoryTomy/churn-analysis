@@ -9,8 +9,8 @@ DB_PARAMS = {
     "port": "5432",
 }
 
-INSERT_METRIC_NAME_PATH = "metric_scripts/insert_metric_name.sql"
-INSERT_COUNT_METRIC_PATH = "metric_scripts/insert_count_metric.sql"
+INSERT_METRIC_NAME_PATH = "scripts_metrics/insert_metric_name.sql"
+INSERT_COUNT_METRIC_PATH = "scripts_metrics/insert_metric_counts.sql"
 
 
 def execute_query_from_file(sql_file_path: str, params: dict) -> None:
@@ -44,11 +44,16 @@ def caculate_metrics(events: List[str]) -> None:
 if __name__ == "__main__":
     events = [
         "ReadingOwnedBook",
+        "FirstLivebookAccess",  # doesn't have data for the first few months
+        "FirstManningAccess",  # doesn't have data for the first few months
         "EBookDownloaded",
         "ReadingFreePreview",
         "HighlightCreated",
         "FreeContentCheckout",
         "ReadingOpenChapter",
+        "ProductTocLivebookLinkOpened",
+        "LivebookLogin",
+        "DashboardLivebookLinkOpened",
         "WishlistItemAdded",
         "CrossReferenceTermOpened",
     ]

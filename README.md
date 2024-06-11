@@ -31,9 +31,13 @@ The raw data consists of event recordcs dumped into a CSV file.
 | EBookDownloaded       | 277,356 | 89,467    | 3.100               | 6.679    | 0.464                        |
 | ReadingFreePreview    | 138,197 | 89,467    | 1.545               | 6.679    | 0.231                        |
 
-### Metric Data
-Snapshot of customers
-
+Created metric tables and calculated summary metrics for customers.
 
 #### Example of an event over time.
 ![](images/EBookDownloaded_over_time.png)
+
+FirstLiveBookAccess and FirstManningAccess only start appearinf in Feb 2020 unlike other events that start in Dec 2019
+
+### Metric Data
+#### Count of events over time.
+- aggregated event counts with a 90 day look nack period. Date ranges were selected based on EDA that showed cylical pattern where people are reading Manning books on the weekdays. Measurements times to pickup a full week each period. 
