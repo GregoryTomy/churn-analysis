@@ -36,8 +36,18 @@ Created metric tables and calculated summary metrics for customers.
 #### Example of an event over time.
 ![](images/EBookDownloaded_over_time.png)
 
-FirstLiveBookAccess and FirstManningAccess only start appearinf in Feb 2020 unlike other events that start in Dec 2019
+FirstLiveBookAccess and FirstManningAccess only start appearing in Feb 2020 unlike other events that start in Dec 2019
 
 ### Metric Data
 #### Count of events over time.
 - aggregated event counts with a 90 day look nack period. Date ranges were selected based on EDA that showed cylical pattern where people are reading Manning books on the weekdays. Measurements times to pickup a full week each period. 
+
+- FirstLiveBookAccess and FirstManningAccess have only one user for all activity. Seems like a QA issue.
+
+#### Metric Statistics QA:
+![](images/metric_over_time_qa/EBookDownloaded_90D_qa_plot.png)
+- More than 25,000 users have downloaded an ebook.
+- Average downloads per user are between 4 and 5.
+- The maximum number of downloads per user range from 450 to over 700 downloads.
+
+Note these could be one account with multiple users like a corporate account.

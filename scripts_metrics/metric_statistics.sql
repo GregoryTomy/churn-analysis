@@ -27,9 +27,7 @@ select
 from
     livebook.metric as m
     cross join account_count
-    -- inner join date_range as d on m.metric_time between d.start_date and d.end_date
-    inner join date_range on metric_time>=start_date
-    and metric_time<=end_date
+    inner join date_range as d on m.metric_time between d.start_date and d.end_date
     join livebook.metric_name as mn on m.metric_name_id=mn.metric_name_id
 group by
     mn.metric_name,
