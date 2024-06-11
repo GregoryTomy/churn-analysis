@@ -1,4 +1,6 @@
 # Churn Analysis
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ## Business Problem
 Our task is to analyze customer behavior on Manning’s liveBook website to understand the factors that influence customer retention and churn. The goal is to determine what encourages customers to return to the website regularly and identify the reasons why some customers stop visiting. By gaining insights into these patterns, we aim to develop strategies to enhance customer engagement and reduce churn, ultimately improving the overall customer experience and business performance.
