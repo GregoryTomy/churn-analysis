@@ -9,7 +9,7 @@ Our task is to analyze customer behavior on Manning’s liveBook website to unde
 3. Developed machine learning models to predict customer churn.
 
 ## Data
-The raw data consists of event recordcs dumped into a CSV file.
+The raw data consists of event records dumped into a CSV file.
 
 | account_id                          | event_time              | event_type                      | product_id | additional_data                                         |
 |-------------------------------------|-------------------------|---------------------------------|------------|---------------------------------------------------------|
@@ -38,13 +38,32 @@ Created metric tables and calculated summary metrics for customers.
 
 FirstLiveBookAccess and FirstManningAccess only start appearing in Feb 2020 unlike other events that start in Dec 2019
 
-### Metric Data
+### Learning about the data.
+> Metrics are summarized events at points in time (a.k.a. features)
 #### Count of events over time.
+- We us counts as our primary feature.-
 - aggregated event counts with a 90 day look nack period. Date ranges were selected based on EDA that showed cylical pattern where people are reading Manning books on the weekdays. Measurements times to pickup a full week each period. 
 
 - FirstLiveBookAccess and FirstManningAccess have only one user for all activity. Seems like a QA issue.
 
-#### Metric Statistics QA:
+### Typical customer activity profile.
+| metric_name                      | count_with_metric | n_account | pct_with_metric | avg_value | min_value | max_value | earliest_metric     | latest_metric       |
+|----------------------------------|-------------------|-----------|-----------------|-----------|-----------|-----------|---------------------|---------------------|
+| EBookDownloaded_90D              | 47,920            | 64,622    | 74.15%          | 4.56      | 1         | 726       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| LivebookLogin_90D                | 33,508            | 64,622    | 51.85%          | 1.62      | 1         | 175       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| ReadingOwnedBook_90D             | 27,130            | 64,622    | 41.98%          | 21.83     | 1         | 1,585     | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| FreeContentCheckout_90D          | 21,956            | 64,622    | 33.98%          | 4.41      | 1         | 49,792    | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| ReadingFreePreview_90D           | 21,591            | 64,622    | 33.41%          | 5.78      | 1         | 365       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| ProductTocLivebookLinkOpened_90D | 17,569            | 64,622    | 27.19%          | 4.11      | 1         | 16,905    | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| ReadingOpenChapter_90D           | 15,445            | 64,622    | 23.90%          | 5.76      | 1         | 386       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| DashboardLivebookLinkOpened_90D  | 10,990            | 64,622    | 17.01%          | 3.71      | 1         | 1,065     | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| WishlistItemAdded_90D            | 8,356             | 64,622    | 12.93%          | 3.76      | 1         | 448       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| CrossReferenceTermOpened_90D     | 7,162             | 64,622    | 11.08%          | 3.77      | 1         | 873       | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| HighlightCreated_90D             | 3,022             | 64,622    | 4.68%           | 33.72     | 1         | 1,453     | 2020-02-22 00:00:00 | 2020-05-30 00:00:00 |
+| FirstManningAccess_90D           | 1                 | 64,622    | 0.00%           | 320,472.33| 19,534    | 624,306   | 2020-03-14 00:00:00 | 2020-05-30 00:00:00 |
+| FirstLivebookAccess_90D          | 1                 | 64,622    | 0.00%           | 320,588.08| 19,389    | 625,186   | 2020-03-14 00:00:00 | 2020-05-30 00:00:00 |
+
+### Metric Statistics QA:
 ![](images/metric_over_time_qa/EBookDownloaded_90D_qa_plot.png)
 - More than 25,000 users have downloaded an ebook.
 - Average downloads per user are between 4 and 5.
